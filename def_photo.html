@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>外部データの読み込み</title>
+</head>
+<body>
+    <h1 id="title"></h1>
+    <img id="image" src="" alt="外部画像">
+    <p id="description"></p>
+
+    <script>
+        // JSONファイルを読み込む
+        fetch('data.json')
+            .then(response => response.json())
+            .then(data => {
+                // データをHTMLに反映
+                document.getElementById('title').textContent = data.title;
+                document.getElementById('image').src = data.imagePath;
+                document.getElementById('description').textContent = data.description;
+            })
+            .catch(error => console.error('データ読み込みエラー:', error));
+    </script>
+</body>
+</html>
