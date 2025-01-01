@@ -4,24 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>外部データの読み込み</title>
+    <style>
+        img {
+            width: 300px;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
-    <h1 id="title"></h1>
+    <h1 id="title">読み込み中...</h1>
     <!-- 画像を表示するためのタグ -->
-    <img id="image" src="" alt="ここに画像が表示されます" style="width: 300px; height: auto;">
-    <p id="description"></p>
+    <img id="image" src="" alt="ここに画像が表示されます">
+    <p id="description">データを読み込んでいます...</p>
 
     <script>
-        // JSONファイルを読み込む
-        fetch('data.json')
-            .then(response => response.json())
-            .then(data => {
+        // 非同期処理でデータを取得し、HTMLに反映する
+        async function loadData() {
+            try {
+                // データを取得
+                const response = await fetch('data.json');
+                
+                if (!response.ok) {
+                    throw new Error(`HTTPエラー: ${response.status}`);
+                }
+                
+                const data = await response.json();
+
+                // データ形式のバリデーション
+                if (!data.title || !data.imagePath || !data.description) {
+                    throw new Error('不正なデータ形式');
+                }
+
                 // データをHTMLに反映
                 document.getElementById('title').textContent = data.title;
                 document.getElementById('image').src = data.imagePath;
+                document.getElementById('image').alt = data.title;
                 document.getElementById('description').textContent = data.description;
-            })
-            .catch(error => console.error('データ読み込みエラー:', error));
+            } catch (error) {
+                // エラーハンドリング
+                console.error('データ読み込みエラー:', error);
+                document.getElementById('title').textContent = 'エラーが発生しました';
+                document.getElementById('image').alt = '画像を読み込めませんでした';
+                document.getElementById('description').textContent = 'データを読み込めませんでした。再試行してください。';
+            }
+        }
+
+        // データを読み込む関数を呼び出し
+        loadData();
     </script>
 </body>
 </html>
