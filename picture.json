@@ -1,17 +1,17 @@
 [
     {
       "id": 1,
-      "image": "html_photo/1.jpg",
+      "image": "html_photo/1.png",
       "comment": "これは私が購入したSSDです。"
     },
     {
       "id": 2,
-      "image": "html_photo/2.jpg",
+      "image": "html_photo/2.png",
       "comment": "別のSSDの写真です。"
     },
     {
       "id": 3,
-      "image": "html_photo/3.jpg",
+      "image": "html_photo/3.png",
       "comment": "さらに別のSSDの写真です。"
     }
   ]
