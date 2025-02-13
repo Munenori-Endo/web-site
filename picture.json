@@ -6,12 +6,12 @@
     },
     {
       "id": 2,
-      "image": "image2.jpg",
+      "image": "html_photo/2.jpg",
       "comment": "別のSSDの写真です。"
     },
     {
       "id": 3,
-      "image": "image3.jpg",
+      "image": "html_photo/3.jpg",
       "comment": "さらに別のSSDの写真です。"
     }
   ]
