@@ -1,0 +1,17 @@
+[
+    {
+      "id": 1,
+      "image": "20241124_141510.jpg",
+      "comment": "これは私が購入したSSDです。"
+    },
+    {
+      "id": 2,
+      "image": "image2.jpg",
+      "comment": "別のSSDの写真です。"
+    },
+    {
+      "id": 3,
+      "image": "image3.jpg",
+      "comment": "さらに別のSSDの写真です。"
+    }
+  ]
