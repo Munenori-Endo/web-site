@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>岩崎台自治会 - 新ポータルサイト案</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c5e2e; /* 落ち着いた緑 */
+            --accent-color: #f1c40f;   /* 注意を引く黄色 */
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding-bottom: 50px;
+            line-height: 1.6;
+        }
+
+        /* ヘッダー */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        /* メインコンテンツ */
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        .intro {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        /* メニュー（カード）のグリッド */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .menu-item {
+            background: white;
+            text-decoration: none;
+            color: var(--text-color);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid #eee;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
+        }
+
+        .menu-item i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .menu-item span {
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        /* お知らせセクション */
+        .news-section {
+            margin-top: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .news-section h2 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 40px;
+        }
+
+        /* スマホ向け調整 */
+        @media (max-width: 480px) {
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2列表示 */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>岩崎台自治会</h1>
+    <p>安心・安全・住みよい街づくり</p>
+</header>
+
+<div class="container">
+    <div class="intro">
+        日進市岩崎台地区の住民の皆様へ、最新の情報をお届けします。
+    </div>
+
+    <div class="menu-grid">
+        <a href="https://www.md.ccnw.ne.jp/iwasakidai/kairan.html" class="menu-item">
+            <i class="fas fa-envelope-open-text"></i>
+            <span>回覧板</span>
+        </a>
+        <a href="https://www.md.ccnw.ne.jp/iwasakidai/gyoji.html" class="menu-item">
+            <i class="fas fa-calendar-alt"></i>
+            <span>行事予定</span>
+        </a>
+        <a href="#" class="menu-item">
+            <i class="fas fa-trash-alt"></i>
+            <span>ゴミ収集日</span>
+        </a>
+        <a href="https://www.md.ccnw.ne.jp/iwasakidai/map.html" class="menu-item">
+            <i class="fas fa-map-marked-alt"></i>
+            <span>防災マップ</span>
+        </a>
+        <a href="https://www.md.ccnw.ne.jp/iwasakidai/katudo.html" class="menu-item">
+            <i class="fas fa-camera"></i>
+            <span>活動報告</span>
+        </a>
+        <a href="https://www.md.ccnw.ne.jp/iwasakidai/link.html" class="menu-item">
+            <i class="fas fa-external-link-alt"></i>
+            <span>リンク集</span>
+        </a>
+    </div>
+
+    <div class="news-section">
+        <h2>最新のお知らせ</h2>
+        <ul style="list-style: none; padding: 0;">
+            <li style="padding: 10px 0; border-bottom: 1px dashed #eee;">
+                <small style="color: #888;">2026.04.19</small><br>
+                ホームページのリニューアル案を作成しました。
+            </li>
+            <li style="padding: 10px 0;">
+                <small style="color: #888;">2026.04.10</small><br>
+                春のクリーン活動についてのお知らせ
+            </li>
+        </ul>
+    </div>
+</div>
+
+<footer>
+    &copy; 2026 岩崎台自治会
+</footer>
+
+</body>
+</html>
