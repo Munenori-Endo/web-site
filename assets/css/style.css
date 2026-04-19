@@ -126,3 +126,48 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+/* 事務局案内セクションのスタイル */
+.office-info {
+    margin-top: 30px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.office-container {
+    display: flex;
+    flex-wrap: wrap; /* 画面が狭いときは縦に並べる */
+    gap: 20px;
+    justify-content: center;
+    align-items: start;
+}
+
+.office-photo img, .office-map img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.office-details {
+    flex: 1;
+    min-width: 300px;
+}
+
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.info-table th, .info-table td {
+    border: 1px solid #8fc31f; /* 自治会カラーの緑 */
+    padding: 10px;
+    text-align: left;
+}
+
+.info-table th {
+    background-color: #f0f9e8;
+    width: 30%;
+}
