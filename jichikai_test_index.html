@@ -3,174 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>岩崎台自治会 - 新ポータルサイト案</title>
+    <title>岩崎台自治会 ポータル</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #2c5e2e; /* 落ち着いた緑 */
-            --accent-color: #f1c40f;   /* 注意を引く黄色 */
-            --bg-color: #f8f9fa;
+            --primary-color: #2c5e2e;
+            --main-card-bg: #ffffff;
+            --sub-card-bg: #f1f3f5;
             --text-color: #333;
         }
 
         body {
             font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-            background-color: var(--bg-color);
+            background-color: #f8f9fa;
             color: var(--text-color);
             margin: 0;
-            padding-bottom: 50px;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
-        /* ヘッダー */
         header {
             background-color: var(--primary-color);
             color: white;
             text-align: center;
-            padding: 2rem 1rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 1.5rem 1rem;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 1.5rem;
-        }
-
-        /* メインコンテンツ */
         .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 15px;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px 15px;
         }
 
-        .intro {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            border-left: 5px solid var(--primary-color);
+        h2 {
+            font-size: 1.1rem;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+            margin: 30px 0 15px;
         }
 
-        /* メニュー（カード）のグリッド */
-        .menu-grid {
+        /* メインメニュー（1枚目の写真） */
+        .main-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
         }
 
-        .menu-item {
-            background: white;
+        .main-item {
+            background: var(--main-card-bg);
             text-decoration: none;
             color: var(--text-color);
-            padding: 20px;
-            border-radius: 12px;
+            padding: 15px 10px;
+            border-radius: 10px;
             text-align: center;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
             display: flex;
             flex-direction: column;
             align-items: center;
-            border: 1px solid #eee;
+            border: 1px solid #ddd;
         }
 
-        .menu-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-            border-color: var(--primary-color);
-        }
-
-        .menu-item i {
-            font-size: 2.5rem;
+        .main-item i {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
             color: var(--primary-color);
-            margin-bottom: 10px;
         }
 
-        .menu-item span {
+        .main-item span {
             font-weight: bold;
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
 
-        /* お知らせセクション */
-        .news-section {
-            margin-top: 30px;
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
+        /* 更新日バッジ */
+        .update-tag {
+            font-size: 0.7rem;
+            color: #d9534f;
+            margin-top: 4px;
         }
 
-        .news-section h2 {
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-            font-size: 1.2rem;
-            color: var(--primary-color);
+        /* サブメニュー（2枚目の写真） */
+        .sub-section {
+            background: #eee;
+            margin-top: 40px;
+            padding: 20px 0;
+        }
+
+        .sub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 10px;
+        }
+
+        .sub-item {
+            background: #fff;
+            text-decoration: none;
+            color: #555;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+        }
+
+        .sub-item i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
         }
 
         footer {
             text-align: center;
+            padding: 30px;
             font-size: 0.8rem;
             color: #888;
-            margin-top: 40px;
         }
 
-        /* スマホ向け調整 */
+        /* スマホ2列固定 */
         @media (max-width: 480px) {
-            .menu-grid {
-                grid-template-columns: repeat(2, 1fr); /* 2列表示 */
-            }
+            .main-grid { grid-template-columns: repeat(2, 1fr); }
+            .sub-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>岩崎台自治会</h1>
-    <p>安心・安全・住みよい街づくり</p>
+    <h1 style="margin:0; font-size:1.4rem;">岩崎台自治会</h1>
 </header>
 
 <div class="container">
-    <div class="intro">
-        日進市岩崎台地区の住民の皆様へ、最新の情報をお届けします。
+    <h2>メインメニュー</h2>
+    <div class="main-grid">
+        <a href="#" class="main-item">
+            <i class="fas fa-home"></i>
+            <span>始めに</span>
+        </a>
+        <a href="#" class="main-item">
+            <i class="fas fa-bullhorn"></i>
+            <span>新着情報</span>
+            <span class="update-tag">4月4日更新</span>
+        </a>
+        <a href="#" class="main-item">
+            <i class="fas fa-shield-alt"></i>
+            <span>防災だより</span>
+            <span class="update-tag">4月4日更新</span>
+        </a>
+        <a href="#" class="main-item">
+            <i class="fas fa-users"></i>
+            <span>自治会</span>
+        </a>
+        <a href="#" class="main-item">
+            <i class="fas fa-file-contract"></i>
+            <span>建築協約</span>
+        </a>
+        <a href="#" class="main-item">
+            <i class="fas fa-fire-extinguisher"></i>
+            <span>防災会</span>
+        </a>
+        <a href="#" class="main-item">
+            <i class="fas fa-blind"></i>
+            <span>熟年友の会</span>
+        </a>
+        <a href="#" class="main-item">
+            <i class="fas fa-child"></i>
+            <span>子ども会</span>
+        </a>
+        <a href="#" class="main-item">
+            <i class="fas fa-icons"></i>
+            <span>サークル活動</span>
+        </a>
+        <a href="#" class="main-item">
+            <i class="fas fa-tree"></i>
+            <span>公園愛護会</span>
+        </a>
+        <a href="#" class="main-item">
+            <i class="fas fa-user-shield"></i>
+            <span>青色防犯パトロール</span>
+        </a>
+        <a href="#" class="main-item">
+            <i class="fas fa-laptop-house"></i>
+            <span>ホーム岩崎台</span>
+        </a>
+        <a href="#" class="main-item">
+            <i class="fas fa-clipboard-list"></i>
+            <span>アンケート</span>
+        </a>
     </div>
+</div>
 
-    <div class="menu-grid">
-        <a href="https://www.md.ccnw.ne.jp/iwasakidai/kairan.html" class="menu-item">
-            <i class="fas fa-envelope-open-text"></i>
-            <span>回覧板</span>
-        </a>
-        <a href="https://www.md.ccnw.ne.jp/iwasakidai/gyoji.html" class="menu-item">
-            <i class="fas fa-calendar-alt"></i>
-            <span>行事予定</span>
-        </a>
-        <a href="#" class="menu-item">
-            <i class="fas fa-trash-alt"></i>
-            <span>ゴミ収集日</span>
-        </a>
-        <a href="https://www.md.ccnw.ne.jp/iwasakidai/map.html" class="menu-item">
-            <i class="fas fa-map-marked-alt"></i>
-            <span>防災マップ</span>
-        </a>
-        <a href="https://www.md.ccnw.ne.jp/iwasakidai/katudo.html" class="menu-item">
-            <i class="fas fa-camera"></i>
-            <span>活動報告</span>
-        </a>
-        <a href="https://www.md.ccnw.ne.jp/iwasakidai/link.html" class="menu-item">
-            <i class="fas fa-external-link-alt"></i>
-            <span>リンク集</span>
-        </a>
-    </div>
-
-    <div class="news-section">
-        <h2>最新のお知らせ</h2>
-        <ul style="list-style: none; padding: 0;">
-            <li style="padding: 10px 0; border-bottom: 1px dashed #eee;">
-                <small style="color: #888;">2026.04.19</small><br>
-                ホームページのリニューアル案を作成しました。
-            </li>
-            <li style="padding: 10px 0;">
-                <small style="color: #888;">2026.04.10</small><br>
-                春のクリーン活動についてのお知らせ
-            </li>
-        </ul>
+<div class="sub-section">
+    <div class="container">
+        <h2 style="margin-top:0;">お問い合わせ・外部リンク</h2>
+        <div class="sub-grid">
+            <a href="mailto:example@example.com" class="sub-item">
+                <i class="fas fa-envelope"></i>
+                <span>メールで意見を送る</span>
+            </a>
+            <a href="#" class="sub-item">
+                <i class="fas fa-link"></i>
+                <span>リンク集</span>
+            </a>
+            <a href="https://www.city.nisshin.lg.jp/" class="sub-item">
+                <i class="fas fa-landmark"></i>
+                <span>日進市役所</span>
+            </a>
+            <a href="#" class="sub-item">
+                <i class="fas fa-school"></i>
+                <span>香久山小学校</span>
+            </a>
+            <a href="#" class="sub-item">
+                <i class="fas fa-building"></i>
+                <span>香久山自治会</span>
+            </a>
+            <a href="#" class="sub-item">
+                <i class="fas fa-balance-scale"></i>
+                <span>愛知警察署</span>
+            </a>
+            <a href="#" class="sub-item">
+                <i class="fas fa-extinguisher"></i>
+                <span>尾三消防本部</span>
+            </a>
+            <a href="#" class="sub-item">
+                <i class="fas fa-hospital-user"></i>
+                <span>岩崎台・香久山福祉会館</span>
+            </a>
+        </div>
     </div>
 </div>
 
