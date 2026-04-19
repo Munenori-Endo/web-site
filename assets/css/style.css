@@ -1,0 +1,128 @@
+/* --- 全ページ共通のデザイン設定 --- */
+:root {
+    --primary-color: #2c5e2e;
+    --main-card-bg: #ffffff;
+    --sub-card-bg: #f1f3f5;
+    --text-color: #333;
+}
+
+body {
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    background-color: #f8f9fa;
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.5;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1.5rem 1rem;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 15px;
+}
+
+h2 {
+    font-size: 1.1rem;
+    border-left: 4px solid var(--primary-color);
+    padding-left: 10px;
+    margin: 30px 0 15px;
+}
+
+/* --- メインメニューのカード設定 --- */
+.main-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+}
+
+.main-item {
+    background: var(--main-card-bg);
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 15px 10px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ddd;
+    transition: transform 0.2s;
+}
+
+.main-item:hover {
+    transform: translateY(-3px);
+}
+
+.main-item i {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    color: var(--primary-color);
+}
+
+.main-item span {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* --- 更新日バッジ（追加分） --- */
+.update-tag {
+    font-size: 0.7rem;
+    color: #d9534f;
+    margin-top: 4px;
+}
+
+/* --- サブメニュー（追加分） --- */
+.sub-section {
+    background: #eee;
+    margin-top: 40px;
+    padding: 20px 0;
+}
+
+.sub-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+}
+
+.sub-item {
+    background: #fff;
+    text-decoration: none;
+    color: #555;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+}
+
+.sub-item i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* --- スマホ向け表示設定（レスポンシブ） --- */
+@media (max-width: 480px) {
+    .main-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sub-grid {
+        grid-template-columns: 1fr;
+    }
+}
