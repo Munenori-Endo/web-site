@@ -4,36 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>回覧板 - 岩崎台自治会</title>
+    <title>回覧板 - 富士見台自治会</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
 <body>
-    <header>
-        <h1><a href="../index.html" style="color:white; text-decoration:none;">岩崎台自治会</a></h1>
+    <header style="background-color: #1a4a1a;">
+        <h1><a href="../index.html" style="color:white; text-decoration:none;">富士見台自治会</a></h1>
     </header>
     <div class="container">
-        <h2>回覧板・資料一覧</h2>
+        <h2>回覧板・資料一覧（架空）</h2>
         <div class="main-grid">
             <a href="#" id="latest-pdf-link" class="main-item">
                 <i class="fas fa-file-pdf"></i>
-                <span id="pdf-title">最新の回覧板を読み込み中...</span>
+                <span id="pdf-title">最新の資料を読み込み中...</span>
             </a>
         </div>
     </div>
 
     <script>
-        // ここにアップロードしたPDFのファイル名を正確に書きます
-        // 今後、新しいPDFを増やしたらこのリストに追加するだけでOKです
+        // 新しいPDFファイル名に書き換えました
         const pdfFiles = [
-            "iwasakidainews2604.pdf"
+            "ホーム／日進市.pdf"
         ];
 
         function updateLink() {
             if (pdfFiles.length === 0) return;
 
-            // ファイル名から最新（数字が大きいもの）を探す
+            // リストの中で最も新しいものを探す処理（重複があっても最新を表示）
             const latest = pdfFiles.reduce((a, b) => {
                 const numA = parseInt(a.replace(/[^0-9]/g, '')) || 0;
                 const numB = parseInt(b.replace(/[^0-9]/g, '')) || 0;
@@ -46,9 +45,9 @@
 
             if (link) {
                 link.href = pdfPath;
-                title.textContent = "最新の回覧板 (" + latest + ")";
+                title.textContent = "最新の資料 (" + latest + ")";
 
-                // 【重要】「始めに」を押した瞬間に自動でPDFを開きたい場合は以下を有効に
+                // ページを開いた瞬間に自動でPDFを表示します
                 window.location.href = pdfPath;
             }
         }
